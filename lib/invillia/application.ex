@@ -8,8 +8,7 @@ defmodule Invillia.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: Invillia.Worker.start_link(arg)
-      # {Invillia.Worker, arg}
+      {Invillia.Stack, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
