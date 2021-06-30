@@ -1,0 +1,16 @@
+version: "3.7"
+
+networks:
+  application: {}
+
+services:
+  application:
+    networks:
+    - application
+    build: .
+    restart: unless-stopped
+    volumes:
+    - .:/srv/app:Z
+    environment:
+      DNS_NAME: "application"
+    command: sh -c "elixir --cookie secret --name node@`hostname -i` -S mix run --no-halt"
